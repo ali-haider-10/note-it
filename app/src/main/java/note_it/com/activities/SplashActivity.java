@@ -1,5 +1,6 @@
 package note_it.com.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,8 +14,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import note_it.com.R;
+import note_it.com.util.PrefManager;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
+
+    // New: public key to request logout when launching SplashActivity
+    public static final String EXTRA_LOGOUT = "extra_logout";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +40,23 @@ public class SplashActivity extends AppCompatActivity {
         flags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR; // clear the flag if it was set
         window.getDecorView().setSystemUiVisibility(flags);
 
+        final PrefManager prefManager = new PrefManager(this);
+
+        // New: if started with the logout extra, clear saved login state immediately.
+        if (getIntent() != null && getIntent().getBooleanExtra(EXTRA_LOGOUT, false)) {
+            // PrefManager is expected to provide a logout/clear method.
+            // If your PrefManager method name differs, update the call below accordingly.
+            prefManager.logout();
+        }
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                if (prefManager.isLoggedIn()) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                } else {
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                }
                 finish();
             }
         }, 2000);

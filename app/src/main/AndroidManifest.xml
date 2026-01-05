@@ -29,12 +29,25 @@
         </activity>
         <activity
             android:name=".activities.CreateNoteActivity"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".activities.MainActivity"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+
+        <!-- Authentication activities -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ResetPasswordActivity"
+            android:windowSoftInputMode="stateHidden" />
+
     </application>
 
 </manifest>

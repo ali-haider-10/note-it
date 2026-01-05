@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -44,6 +45,7 @@ import note_it.com.adapters.NotesAdapter;
 import note_it.com.database.NotesDatabase;
 import note_it.com.entities.Note;
 import note_it.com.listeners.NotesListener;
+import note_it.com.util.PrefManager;
 
 public class MainActivity extends AppCompatActivity implements NotesListener {
 
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
     private int noteClickedPosition = -1;
 
     private AlertDialog dialogAddURL;
+
+    private PrefManager prefManager;
+    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +150,22 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             @Override
             public void onClick(View v) {
                 showAddURLDialog();
+            }
+        });
+
+        prefManager = new PrefManager(this);
+
+        // wire logout button
+        btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefManager.logout();
+                Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
 

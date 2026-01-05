@@ -1,0 +1,56 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log files
+*.log
+
+# Android Studio generated files
+.idea/
+*.iml
+
+# Keystore files (DO NOT COMMIT YOUR SIGNING KEYS)
+*.jks
+*.keystore
+
+# Generated files
+captures/
+output.json
+
+# APKs
+*.apk
+*.ap_
+
+# Cache
+.cache/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.swp
+*.swo
+
+# Dependency directories
+/app/build/

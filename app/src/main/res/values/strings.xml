@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Note-It</string>
+    <string name="my_notes">My Notes</string>
+    <string name="search_notes">Search Notes</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_subtitle">Note Subtitle</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="pick_color">Pick Color</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_url">Add Url</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="add">ADD</string>
+    <string name="cancel_dialog">CANCEL</string>
+    <string name="delete_note">Delete Note</string>
+    <string name="are_you_sure_you_want_to_delete_this_note">Are you sure you want to delete this note?</string>
+    <string name="developers_name">powered By JMC Students</string>
+    <string name="settings">Settings</string>
+
+    <string-array name="sort_options">
+       <item>Sort by Date</item>
+       <item>Sort by Title</item>
+       <item>Sort by Last Modified</item>
+    </string-array>
+
+</resources>
